@@ -1,0 +1,48 @@
+.header {
+  width: 90%;
+  margin: 0 5%;
+
+  .brand {
+    padding: 1rem;
+    font-size: 2rem;
+    font-weight: 700;
+    background-color: red;
+    color: white;
+    display: inline-block;
+  }
+
+  .live {
+    display: inline-block;
+    margin: 0 1rem;
+
+    .container {
+      width: fit-content;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+    }
+
+    .pulse {
+      width: 1rem;
+      height: 1rem;
+      border: none;
+      box-shadow: 0 0 0 0 rgba(red, 0.7);
+      border-radius: 50%;
+      background-color: red;
+      animation: pulse 1.25s infinite cubic-bezier(0.66, 0, 0, 1);
+    }
+    
+    @keyframes pulse {
+      to {
+        box-shadow: 0 0 0 1rem rgba(red, 0);
+      }
+    }
+    
+    .pulse-text {
+      margin-left: 1rem;
+      color: red;
+      text-transform: uppercase;
+      line-height: 1;
+    }
+  }
+}

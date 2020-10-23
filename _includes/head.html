@@ -1,0 +1,26 @@
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8">
+  <title>{{ page.title }} - {{ site.title }}</title>
+  <link rel="stylesheet" href="{{ "/assets/css/main.css" | relative_url }}">
+
+  {%- comment -%}
+  webfont loader
+  {%- endcomment -%}
+  <script>
+    WebFontConfig = {
+      google: {
+        families: ['Titillium Web:400,700,900', 'Roboto Mono', 'Lora:400,700']
+      }
+    };
+
+    (function (d) {
+      var wf = d.createElement('script'),
+        s = d.scripts[0];
+      wf.src = "{{ '/assets/vendor/webfontloader.js' | relative_url }}";
+      wf.async = true;
+      s.parentNode.insertBefore(wf, s);
+    })(document);
+  </script>
+
+</head>

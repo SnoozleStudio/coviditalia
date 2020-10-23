@@ -1,0 +1,14 @@
+{
+  "name": "create-jekyll-project",
+  "version": "1.0.0",
+  "description": "⚡ A generator to kickstart your Jekyll project in a few seconds!",
+  "main": "index.js",
+  "author": "SnoozleStudio <info@snoozle.studio> (https://www.snoozle.studio)",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "chart.js": "^2.9.4",
+    "lodash": "^4.17.20",
+    "webfontloader": "^1.6.28"
+  }
+}
