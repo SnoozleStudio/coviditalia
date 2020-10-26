@@ -3,7 +3,79 @@ layout: default
 title: "SnoozleStudio jekyll website"
 ---
 
-<h2>Nuovi positivi</h2>
+<section class="table-section">
+
+  <h1 class="h1">
+    Coronavirus in Italia, i dati aggiornati
+  </h1>
+  <p>
+    Ultimo aggiornamento: 2020-10-25 ore 17:00:00, dati forniti dalla Presidenza del Consiglio dei Ministri -
+    Dipartimento della Protezione Civile.
+  </p>
+
+  <div class="table-container">
+    <div class="table">
+      <div class="table-content">
+        <div class="title">
+          totale positivi
+        </div>
+        <div class="value">
+          <span id="js-totale-positivi"></span>
+        </div>
+        <div class="difference">
+          differenza rispetto a ieri
+        </div>
+      </div>
+    </div>
+    <div class="table">
+      <div class="table-content">
+
+        <div class="title">
+          dimessi/guariti
+        </div>
+        <div class="value">
+          <span id="js-dimessi-guariti"></span>
+        </div>
+        <div class="difference">
+          differenza rispetto a ieri
+        </div>
+      </div>
+    </div>
+
+    <div class="table">
+      <div class="table-content">
+        <div class="title">
+          deceduti
+        </div>
+        <div class="value">
+          <span id="js-deceduti"></span>
+        </div>
+        <div class="difference">
+          differenza rispetto a ieri
+        </div>
+      </div>
+    </div>
+
+    <div class="table">
+      <div class="table-content">
+        <div class="title">
+          totale casi
+        </div>
+        <div class="value">
+          <span id="js-totale-casi"></span>
+        </div>
+        <div class="difference">
+          differenza rispetto a ieri
+        </div>
+      </div>
+    </div>
+    
+  </div>
+</section>
+
+
+
+<h2 class="h2">Nuovi positivi</h2>
 <p>
   Nuovi attualmente positivi (totale_casi giorno corrente - totale_casi giorno precedente)
 </p>

@@ -2,9 +2,9 @@ const api_urlIt = 'https://raw.githubusercontent.com/pcm-dpc/COVID-19/master/dat
 
 function grafico(x, y, type, elem) {
   let timeStep = [...x].length / 56;
-  
-  var ctx = document.getElementById(elem).getContext('2d');
-  var myChart = new Chart(ctx, {
+
+  const ctx = document.getElementById(elem).getContext('2d');
+  let myChart = new Chart(ctx, {
     type: type,
     data: {
       labels: x,
@@ -31,8 +31,8 @@ function grafico(x, y, type, elem) {
             display: false
           },
           ticks: {
-            maxRotation: 0,
-            minRotation: 0,
+            maxRotation: 90,
+            minRotation: 90,
             maxTicksLimit: timeStep
           }
         }],
@@ -59,8 +59,42 @@ async function getCovidIt() {
   console.log(data);
 
   // get all days in array
-  let giorni = _.map(data, 'data');
-  console.log(giorni);
+  let giorniExt = _.map(data, 'data');
+  let giorni = [];
+  console.log(giorniExt);
+
+  // tronca la data array
+  function truncateDate(arrayIn, arrayOut, ) {
+    const arrayInCopy = [...arrayIn];
+    arrayInCopy.forEach(dataUnit => {
+      arrayOut.push(dataUnit.split("T")[0]);
+    })
+  }
+  truncateDate(giorniExt, giorni);
+
+  // totale casi
+  let totaleCasiContainer = document.getElementById('js-totale-casi');
+  let totaleCasi = _.map(data, 'totale_casi');
+  let totaleCasiLast = totaleCasi.pop();
+  totaleCasiContainer.innerText = totaleCasiLast;
+
+  // totale positivi
+  let totalePositiviContainer = document.getElementById('js-totale-positivi');
+  let totalePositivi = _.map(data, 'totale_positivi');
+  let totalePositiviLast = totalePositivi.pop();
+  totalePositiviContainer.innerText = totalePositiviLast;
+
+  // deceduti
+  let decedutiContainer = document.getElementById('js-deceduti');
+  let deceduti = _.map(data, 'deceduti');
+  let decedutiLast = deceduti.pop();
+  decedutiContainer.innerText = decedutiLast;
+
+  // dimessi guariti
+  let dimessiGuaritiContainer = document.getElementById('js-dimessi-guariti');
+  let dimessiGuariti = _.map(data, 'dimessi_guariti');
+  let dimessiGuaritiLast = dimessiGuariti.pop();
+  dimessiGuaritiContainer.innerText = dimessiGuaritiLast;
 
   // get all variazione positivi
   let variazioneTotalePositivi = _.map(data, 'nuovi_positivi');
