@@ -4,7 +4,7 @@ function grafico(x, y, type, elem) {
   let timeStep = [...x].length / 56;
 
   const ctx = document.getElementById(elem).getContext('2d');
-  let myChart = new Chart(ctx, {
+  const ctxOptions = {
     type: type,
     data: {
       labels: x,
@@ -47,7 +47,9 @@ function grafico(x, y, type, elem) {
         }]
       }
     }
-  });
+  }
+
+  let myChart = new Chart(ctx, ctxOptions);
 }
 
 async function getCovidIt() {
@@ -56,12 +58,12 @@ async function getCovidIt() {
   const data = await response.json();
 
   // check data
-  console.log(data);
+  // console.log(data);
 
   // get all days in array
   let giorniExt = _.map(data, 'data');
   let giorni = [];
-  console.log(giorniExt);
+  // console.log(giorniExt);
 
   // tronca la data array
   function truncateDate(arrayIn, arrayOut, ) {
@@ -72,33 +74,24 @@ async function getCovidIt() {
   }
   truncateDate(giorniExt, giorni);
 
-  // totale casi
-  let totaleCasiContainer = document.getElementById('js-totale-casi');
-  let totaleCasi = _.map(data, 'totale_casi');
-  let totaleCasiLast = totaleCasi.pop();
-  totaleCasiContainer.innerText = totaleCasiLast;
+  function mainTableData(el, arg) {
+    let container = document.getElementById(el);
+    let array = _.map(data, arg);
+    // console.log(array);
+    let last = array.pop();
+    container.innerText = last;
+    // console.log(last);
+    // console.log(array);
+  }
 
-  // totale positivi
-  let totalePositiviContainer = document.getElementById('js-totale-positivi');
-  let totalePositivi = _.map(data, 'totale_positivi');
-  let totalePositiviLast = totalePositivi.pop();
-  totalePositiviContainer.innerText = totalePositiviLast;
-
-  // deceduti
-  let decedutiContainer = document.getElementById('js-deceduti');
-  let deceduti = _.map(data, 'deceduti');
-  let decedutiLast = deceduti.pop();
-  decedutiContainer.innerText = decedutiLast;
-
-  // dimessi guariti
-  let dimessiGuaritiContainer = document.getElementById('js-dimessi-guariti');
-  let dimessiGuariti = _.map(data, 'dimessi_guariti');
-  let dimessiGuaritiLast = dimessiGuariti.pop();
-  dimessiGuaritiContainer.innerText = dimessiGuaritiLast;
+  mainTableData('js-totale-casi', 'totale_casi');
+  mainTableData('js-totale-positivi', 'totale_positivi');
+  mainTableData('js-deceduti', 'deceduti');
+  mainTableData('js-dimessi-guariti', 'dimessi_guariti');
 
   // get all variazione positivi
   let variazioneTotalePositivi = _.map(data, 'nuovi_positivi');
-  console.log(variazioneTotalePositivi);
+  // console.log(variazioneTotalePositivi);
 
   grafico(giorni, variazioneTotalePositivi, 'line', 'itChart');
 }
