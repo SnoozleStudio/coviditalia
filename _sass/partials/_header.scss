@@ -49,12 +49,17 @@
 
 $btn-padding: .5rem;
 
+$header-padding: .5rem 0;
+
+$icon-h: 1.5rem;
+
+$flag-h: 2px;
+
 $transition-duration: .5s;
 $transition-timing-func: cubic-bezier(0.755, 0.05, 0.855, 0.06);
 $transition-all: all $transition-duration $transition-timing-func;
 
 .skip-link {
-  font-family: $firaFont;
   position: absolute;
   top: -40px;
   left: 0;
@@ -83,48 +88,103 @@ $transition-all: all $transition-duration $transition-timing-func;
   z-index: 5;
 
   .header-container {
-    width: 100%;
-    padding: .5rem;
+    width: 90%;
+    margin: 0 5%;
+    padding: $header-padding;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     line-height: 1;
+    box-sizing: border-box;
 
-    .snoozle-logo {
-      text-align: center;
+    .logo-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
 
-      .snoozle-link {
-        text-decoration: none;
-        color: $black;
+      @include xs-up {
+        flex-direction: row;
+      }
+
+      .snoozle-logo {
+        text-align: center;
+
+        .snoozle-link {
+          text-decoration: none;
+          color: $black;
+
+          .snoozle {
+            font-family: $abrilFont;
+            font-size: 1.125rem;
+          }
+
+          .studio {
+            font-family: $firaFont;
+            font-size: .925rem;
+          }
+        }
 
         .snoozle {
-          font-family: $abrilFont;
-          font-size: 1.125rem;
+          font-size: 1.425rem;
         }
+
         .studio {
-          font-family: $firaFont;
-          // font-weight: 300;
+          font-size: 1.225rem;
+        }
+
+        .abruzzo {
+          margin-top: -.325rem;
+          font-family: $permanentFont;
+          color: $bluSavoia;
           font-size: .925rem;
+          transform: rotate(-3deg);
         }
       }
 
-      .snoozle {
-        font-size: 1.425rem;
-      }
+      .live {
+        display: inline-block;
+        margin: 1rem 0 0 0;
 
-      .studio {
-        font-size: 1.225rem;
-      }
+        @include xs-up {
+          margin: 0 0 0 1rem;
+        }
 
-      .abruzzo {
-        margin-top: -.325rem;
-        // font-family: $marker;
-        color: blue;
-        font-size: .925rem;
-        transform: rotate(-3deg);
+
+        .container {
+          width: fit-content;
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+        }
+
+        .pulse {
+          text-transform: uppercase;
+          width: 1rem;
+          height: 1rem;
+          border: none;
+          box-shadow: 0 0 0 0 rgba(red, 0.7);
+          border-radius: 50%;
+          background-color: red;
+          animation: pulse 1.25s infinite cubic-bezier(0.66, 0, 0, 1);
+        }
+
+        @keyframes pulse {
+          to {
+            box-shadow: 0 0 0 .5rem rgba(red, 0);
+          }
+        }
+
+        .pulse-text {
+          margin-left: .5rem;
+          color: red;
+          text-transform: uppercase;
+          line-height: 1;
+        }
       }
     }
+
+
 
     .social-container {
       display: flex;
@@ -159,21 +219,19 @@ $transition-all: all $transition-duration $transition-timing-func;
         &:last-of-type {
           margin-right: 0;
         }
+
+        .social-link-icon {
+          height: $icon-h;
+          width: auto;
+        }
       }
     }
   }
 
-  // .italy {
-  //   width: 100%;
-  //   height: 2px;
-  //   background: $it-green;
-  //   background: linear-gradient(90deg, $it-green 0%, $it-white 50%, $it-red 100%);
-  // }
-
   .abruzzo-colors {
     width: 100%;
-    height: 2px;
-    background: rgb(255, 255, 255);
-    background: linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(30, 93, 168, 1) 50%, rgba(120, 184, 42, 1) 100%);
+    height: $flag-h;
+    background: $itWhite;
+    background: linear-gradient(90deg, $itGreen 0%, $itWhite 50%, $itRed 100%);
   }
 }

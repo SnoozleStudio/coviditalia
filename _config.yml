@@ -1,7 +1,7 @@
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://coviditalia.info" # the base hostname & protocol for your site, e.g. http://example.com
 baseurl: "" # the subpath of your site, e.g. /blog
-title: "Covid Italia" # the name of your site, e.g. ACME Corp.
-lang: "en"
+title: "SnoozleStudio" # the name of your site, e.g. ACME Corp.
+lang: "it"
 
 sass:
   sass_dir: _sass
