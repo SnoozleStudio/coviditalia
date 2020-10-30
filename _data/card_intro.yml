@@ -1,27 +1,20 @@
 - title: "ricoverati con sintomi"
-  bgColor: "bg-red"
   jsId: "ricoverati-con-sintomi"
 
 - title: "terapia intensiva"
-  bgColor: "bg-red"
   jsId: "terapia-intensiva"
 
 - title: "isolamento domiciliare"
-  bgColor: "bg-red"
   jsId: "isolamento-domiciliare"
 
 - title: "totale positivi"
-  bgColor: "bg-red-active"
   jsId: "totale-positivi"
 
 - title: "dimessi/guariti"
-  bgColor: "bg-green"
   jsId: "dimessi-guariti"
 
 - title: "deceduti"
-  bgColor: "bg-black"
   jsId: "deceduti"
 
 - title: "totale casi"
-  bgColor: "bg-blue"
   jsId: "totale-casi"

@@ -1,7 +1,8 @@
 .card-intro-container {
   display: flex;
   flex-wrap: wrap;
-  margin-bottom: 1rem;
+  margin-bottom: .5rem;
+  justify-content: center;
 
   .card-intro {
     display: flex;
@@ -11,16 +12,24 @@
     color: $white;
     width: 100%;
     margin: 0 0 .5rem 0;
-    
+
+    &:last-child {
+      margin: 0;
+    }
+
     @include xs-up {
       margin: 0 .5rem .5rem 0;
       width: unset;
+
+      &:last-child {
+        margin: 0 0 .5rem 0;
+      }
     }
 
     .card-intro-content {
       padding: 1rem;
       text-align: center;
-      
+
       .difference {
         margin-bottom: .5rem;
         font-family: $monoFont;
@@ -28,43 +37,23 @@
         .val-absulte {
           font-size: 2rem;
         }
-        
+
         .val-relative {
           margin-left: .25rem;
         }
       }
-      
+
       .title {
         text-transform: uppercase;
         margin-bottom: .25rem;
         font-size: 1.25rem;
       }
-      
+
       .value {
         margin-top: 1rem;
         font-size: 1.5rem;
         font-family: $monoFont;
       }
     }
-  }
-
-  .bg-red {
-    background-color: $itLightRed;
-  }
-
-  .bg-green {
-    background-color: $itGreen;
-  }
-
-  .bg-blue {
-    background-color: $bluSavoia;
-  }
-
-  .bg-black {
-    background-color: $black;
-  }
-
-  .bg-red-active {
-    background-color: $itRed;
   }
 }

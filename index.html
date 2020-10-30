@@ -4,35 +4,37 @@ title: "Coronavirus in Italia, i dati aggiornati."
 ---
 
 <section class="section section-first">
-  <h1 class="section-title">
-    {{ page.title }}
-  </h1>
-  <p class="section-p">
-    Ultimo aggiornamento: <span id="js-last-update-date"></span> alle ore <span id="js-last-update-time"></span>. Dati
-    forniti dalla Presidenza del Consiglio dei Ministri -
-    Dipartimento della Protezione Civile.
-  </p>
-  <div class="card-intro-container">
-    {% for cardintro in site.data.card_intro %}
-    <div class="card-intro {{ cardintro.bgColor }}">
-      <div class="card-intro-content">
-        <div class="difference">
-          <span id="js-{{ cardintro.jsId }}-absolute" class="val-absulte"></span>
-          <span id="js-{{ cardintro.jsId }}-relative" class="val-relative"></span>
-        </div>
-        <h2 class="title">
-          {{ cardintro.title }}
-        </h2>
-        <div class="value">
-          <span id="js-{{ cardintro.jsId }}"></span>
+  <div class="section-container">
+    <h1 class="section-title">
+      {{ page.title }}
+    </h1>
+    <p class="section-p text-center">
+      Ultimo aggiornamento: <span id="js-last-update-date"></span> alle ore <span id="js-last-update-time"></span>.
+      <br>
+      Dati forniti dalla Presidenza del Consiglio dei Ministri - Dipartimento della Protezione Civile.
+    </p>
+    <div class="card-intro-container">
+      {% for cardintro in site.data.card_intro %}
+      <div id="js-{{ cardintro.jsId }}-container" class="card-intro">
+        <div class="card-intro-content">
+          <div class="difference">
+            <span id="js-{{ cardintro.jsId }}-absolute" class="val-absulte"></span>
+            <span id="js-{{ cardintro.jsId }}-relative" class="val-relative"></span>
+          </div>
+          <h2 class="title">
+            {{ cardintro.title }}
+          </h2>
+          <div class="value">
+            <span id="js-{{ cardintro.jsId }}"></span>
+          </div>
         </div>
       </div>
+      {% endfor %}
     </div>
-    {% endfor %}
+    <p class="section-p">
+      Le variazioni sono rispetto al giorno precedente.
+    </p>
   </div>
-  <p class="section-p">
-    Le variazioni sono rispetto al giorno precedente.
-  </p>
 </section>
 
 
