@@ -101,9 +101,9 @@ $transition-all: all $transition-duration $transition-timing-func;
     .logo-container {
       display: flex;
       flex-direction: column;
-      align-items: center;
-
+      
       @include xs-up {
+        align-items: center;
         flex-direction: row;
       }
 
@@ -132,19 +132,11 @@ $transition-all: all $transition-duration $transition-timing-func;
         .studio {
           font-size: 1.225rem;
         }
-
-        .abruzzo {
-          margin-top: -.325rem;
-          font-family: $permanentFont;
-          color: $bluSavoia;
-          font-size: .925rem;
-          transform: rotate(-3deg);
-        }
       }
 
       .live {
         display: inline-block;
-        margin: 1rem 0 0 0;
+        margin: .5rem 0 0 0;
 
         @include xs-up {
           margin: 0 0 0 1rem;

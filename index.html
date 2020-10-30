@@ -1,76 +1,38 @@
 ---
 layout: home
-title: "Coronavirus in Italia, i dati aggiornati"
+title: "Coronavirus in Italia, i dati aggiornati."
 ---
 
-<section class="table-section">
-
-  <h1 class="h1">
+<section class="section section-first">
+  <h1 class="section-title">
     {{ page.title }}
   </h1>
-  <p>
-    Ultimo aggiornamento: (get last update from api), dati forniti dalla Presidenza del Consiglio dei Ministri -
+  <p class="section-p">
+    Ultimo aggiornamento: <span id="js-last-update-date"></span> alle ore <span id="js-last-update-time"></span>. Dati
+    forniti dalla Presidenza del Consiglio dei Ministri -
     Dipartimento della Protezione Civile.
   </p>
-
-  <div class="table-container">
-    <div class="table">
-      <div class="table-content">
-        <div class="title">
-          totale positivi
-        </div>
-        <div class="value">
-          <span id="js-totale-positivi"></span>
-        </div>
+  <div class="card-intro-container">
+    {% for cardintro in site.data.card_intro %}
+    <div class="card-intro {{ cardintro.bgColor }}">
+      <div class="card-intro-content">
         <div class="difference">
-          differenza rispetto a ieri
+          <span id="js-{{ cardintro.jsId }}-absolute" class="val-absulte"></span>
+          <span id="js-{{ cardintro.jsId }}-relative" class="val-relative"></span>
+        </div>
+        <h2 class="title">
+          {{ cardintro.title }}
+        </h2>
+        <div class="value">
+          <span id="js-{{ cardintro.jsId }}"></span>
         </div>
       </div>
     </div>
-    <div class="table">
-      <div class="table-content">
-
-        <div class="title">
-          dimessi/guariti
-        </div>
-        <div class="value">
-          <span id="js-dimessi-guariti"></span>
-        </div>
-        <div class="difference">
-          differenza rispetto a ieri
-        </div>
-      </div>
-    </div>
-
-    <div class="table">
-      <div class="table-content">
-        <div class="title">
-          deceduti
-        </div>
-        <div class="value">
-          <span id="js-deceduti"></span>
-        </div>
-        <div class="difference">
-          differenza rispetto a ieri
-        </div>
-      </div>
-    </div>
-
-    <div class="table">
-      <div class="table-content">
-        <div class="title">
-          totale casi
-        </div>
-        <div class="value">
-          <span id="js-totale-casi"></span>
-        </div>
-        <div class="difference">
-          differenza rispetto a ieri
-        </div>
-      </div>
-    </div>
-    
+    {% endfor %}
   </div>
+  <p class="section-p">
+    Le variazioni sono rispetto al giorno precedente.
+  </p>
 </section>
 
 

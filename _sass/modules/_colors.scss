@@ -1,7 +1,11 @@
 $white: #fefefe;
 $black: #010101;
+$darkgray: #333333;
+$gray: #555555;
 
 $bluSavoia: #4B61D1;
 $itGreen: #008C45;
 $itWhite: #F4F5F0;
 $itRed: #CD212A;
+
+$itLightRed: lighten($itRed, 5%);
